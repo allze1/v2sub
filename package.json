@@ -1,5 +1,5 @@
 {
-    "name": "express-vue-starter",
+    "name": "v2sub",
     "type": "module",
     "scripts": {
         "deploy": "wrangler deploy",

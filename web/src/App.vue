@@ -1,5 +1,5 @@
 <script setup></script>
 
-<template>express-vue-starter</template>
+<template>v2sub</template>
 
 <style scoped></style>

@@ -1,3 +1,3 @@
-# cfworker-express-vue-starter
+# v2sub
 
-Cloudflare Worker 上的 Express + Vue 开始代码
+在 Cloudflare Worker 上运行的订阅聚合器
