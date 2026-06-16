@@ -10,9 +10,6 @@
     "build": {
         "command": "npm install && cd web && npm install && npm run build"
     },
-    "triggers": {
-        "crons": ["0 */8 * * *"]
-    },
     "kv_namespaces": [
         {
             "binding": "data",
