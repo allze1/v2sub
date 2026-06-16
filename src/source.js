@@ -23,4 +23,15 @@ source.post('/set', async (req, res) => {
     return res.status(200).send('操作成功')
 })
 
+source.get('/info', async (req, res) => {
+    const { name } = req.query
+    if (typeof name !== 'string' || name === '') {
+        return res.status(400).send('请求错误')
+    }
+
+    const data = await env.data.get(name)
+    const obj = JSON.parse(data)
+    return res.status(200).json(obj)
+})
+
 export default source

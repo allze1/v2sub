@@ -55,7 +55,22 @@ const addSource = () => {
     openEditor()
 }
 
-const editSource = async idx => {}
+const editSource = async idx => {
+    const name = subNames.value[idx]
+
+    try {
+        loading.value = true
+        const res = await axios.get(`/api/source/info?name=${name}`)
+
+        const { url, exclude } = res.data
+        Object.assign(sourceData, { name, url, exclude })
+        openEditor()
+    } catch (error) {
+        ElMessage.error(error.response.data)
+    } finally {
+        loading.value = false
+    }
+}
 
 const deleteSource = async idx => {}
 
