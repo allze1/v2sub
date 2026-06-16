@@ -66,7 +66,10 @@ sub.get('/get', async (req, res) => {
     }
 
     const keys = (await env.data.list()).keys
-    const subNames = keys.map(item => item.name)
+    const subNames = keys.map(item => item.name).filter(item => item !== 'sub_secret')
+    if (subNames.length === 0) {
+        return res.status(500).send('未配置订阅')
+    }
 
     const values = await env.data.get(subNames)
     const subs = Object.fromEntries(values)
