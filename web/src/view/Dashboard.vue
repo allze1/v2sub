@@ -10,7 +10,7 @@ import { useRouter } from 'vue-router'
 const loading = ref(false)
 const router = useRouter()
 
-const logout = async () => {
+const doLogout = async () => {
     try {
         loading.value = true
         const res = await axios.get('/api/auth/logout')
@@ -31,7 +31,7 @@ const logout = async () => {
             <el-button type="primary" :loading="loading" :icon="Refresh" />
             <el-button type="primary" :loading="loading" :icon="Plus" />
             <div class="flex-1"></div>
-            <el-button type="warning" :loading="loading" @click="logout" :icon="DArrowRight" />
+            <el-button type="warning" :loading="loading" @click="doLogout" :icon="DArrowRight" />
         </div>
     </div>
 </template>
