@@ -17,5 +17,10 @@ export default {
         }
 
         return asset
+    },
+
+    async scheduled(ctl, env, ctx) {
+        const { setenv } = await import('./cfenv.js')
+        setenv(env)
     }
 }
