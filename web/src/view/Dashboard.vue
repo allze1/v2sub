@@ -72,7 +72,21 @@ const editSource = async idx => {
     }
 }
 
-const deleteSource = async idx => {}
+const deleteSource = async idx => {
+    const name = subNames.value[idx]
+
+    try {
+        loading.value = true
+        const res = await axios.delete(`/api/source/delete?name=${name}`)
+
+        ElMessage.success(res.data)
+        await fetchSubNames()
+    } catch (error) {
+        ElMessage.error(error.response.data)
+    } finally {
+        loading.value = false
+    }
+}
 
 const saveSource = async () => {
     try {
