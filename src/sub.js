@@ -39,7 +39,19 @@ const processItem = async (name, url, exclude) => {
         return excludes.some(item => decodedName.includes(item))
     }
 
-    return nodes.filter(value => !isMatch(value))
+    const format = node => {
+        const idx = node.lastIndexOf('#')
+
+        const prefix = node.slice(0, idx + 1)
+        const rawName = node.slice(idx + 1)
+
+        const decodedName = decodeURIComponent(rawName)
+        const formatedName = `${name} - ${decodedName}`
+
+        return `${prefix}${formatedName}`
+    }
+
+    return nodes.filter(value => !isMatch(value)).map(item => format(item))
 }
 
 sub.get('/get', async (req, res) => {
