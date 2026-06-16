@@ -9,8 +9,8 @@ const env = getenv()
 
 source.get('/list', async (req, res) => {
     const keys = (await env.data.list()).keys
-    const names = keys.map(item => item.name)
-    return res.status(200).json(names)
+    const subNames = keys.map(item => item.name)
+    return res.status(200).json(subNames)
 })
 
 export default source
